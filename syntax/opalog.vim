@@ -11,7 +11,7 @@ endif
 syn case match
 
 " language keywords
-syn keyword opaKeyword package import as
+syn keyword opaKeyword package import as not
 
 " comments
 syn match opaComment "#.*$" contains=opaTodo,@Spell
