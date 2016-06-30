@@ -37,6 +37,8 @@ syn match regoRuleValue "=\w\+" nextgroup=regoIfThen skipwhite
 syn match regoIfThen ":-"
 syn match regoEquality "="
 syn match regoInequality "[<>!]"
+syn match regoBuiltin "\w\+(" nextgroup=regoBuiltinArgs contains=regoBuiltinArgs
+syn region regoBuiltinArgs start="(" end=")" contained
 
 " highlighting
 hi link regoKeyword Keyword
@@ -50,5 +52,6 @@ hi link regoRuleValue Normal
 hi link regoIfThen Keyword
 hi link regoEquality Keyword
 hi link regoInequality Keyword
+hi link regoBuiltin Keyword
 hi link regoComment Comment
 hi link regoTodo Todo
