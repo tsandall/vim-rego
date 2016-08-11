@@ -24,11 +24,11 @@ syn match regoNumber "\<\(0[0-7]*\|0[xx]\x\+\|\d\+\)[ll]\=\>"
 syn match regoNumber "\(\<\d\+\.\d*\|\.\d\+\)\([ee][-+]\=\d\+\)\=[ffdd]\="
 syn match regoNumber "\<\d\+[ee][-+]\=\d\+[ffdd]\=\>"
 syn match regoNumber "\<\d\+\([ee][-+]\=\d\+\)\=[ffdd]\>"
-syn region regoString start="\"[^"]" skip="\\\"" end="\"" contains=regoStringEscape
-syn match regoStringEscape "\\u[0-9a-fA-F]\{4}" contained
-syn match regoStringEscape "\\[nrfvb\\\"]" contained
+"syn region regoString start="\"[^"]" skip="\\\"" end="\"" contains=regoStringEscape
+"syn match regoStringEscape "\\u[0-9a-fA-F]\{4}" contained
+"syn match regoStringEscape "\\[nrfvb\\\"]" contained
 
-" rule head 
+" rule head
 syn match regoRuleName "^\w\+" nextgroup=regoRuleKey,regoRuleValue skipwhite
 syn region regoRuleKey start="\[" end="\]" contained skipwhite
 syn match regoRuleValue "=\w\+" nextgroup=regoIfThen skipwhite
@@ -38,7 +38,7 @@ syn match regoIfThen ":-"
 syn match regoEquality "="
 syn match regoInequality "[<>!]"
 syn match regoBuiltin "\w\+(" nextgroup=regoBuiltinArgs contains=regoBuiltinArgs
-syn region regoBuiltinArgs start="(" end=")" contained
+syn region regoBuiltinArgs start="(" end=")" contained contains=regoNumber,regoNull,regoBoolean,regoString
 
 " highlighting
 hi link regoKeyword Keyword
