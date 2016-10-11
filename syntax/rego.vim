@@ -24,9 +24,9 @@ syn match regoNumber "\<\(0[0-7]*\|0[xx]\x\+\|\d\+\)[ll]\=\>"
 syn match regoNumber "\(\<\d\+\.\d*\|\.\d\+\)\([ee][-+]\=\d\+\)\=[ffdd]\="
 syn match regoNumber "\<\d\+[ee][-+]\=\d\+[ffdd]\=\>"
 syn match regoNumber "\<\d\+\([ee][-+]\=\d\+\)\=[ffdd]\>"
-"syn region regoString start="\"[^"]" skip="\\\"" end="\"" contains=regoStringEscape
-"syn match regoStringEscape "\\u[0-9a-fA-F]\{4}" contained
-"syn match regoStringEscape "\\[nrfvb\\\"]" contained
+syn region regoString start="\"[^"]" skip="\\\"" end="\"" contains=regoStringEscape
+syn match regoStringEscape "\\u[0-9a-fA-F]\{4}" contained
+syn match regoStringEscape "\\[nrfvb\\\"]" contained
 
 " rule head
 syn match regoRuleName "^\w\+" nextgroup=regoRuleKey,regoRuleValue skipwhite
