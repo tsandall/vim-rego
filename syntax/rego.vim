@@ -28,19 +28,16 @@ syn region regoString start="\"[^"]" skip="\\\"" end="\"" contains=regoStringEsc
 syn match regoStringEscape "\\u[0-9a-fA-F]\{4}" contained
 syn match regoStringEscape "\\[nrfvb\\\"]" contained
 
-" rule head
-" TODO: how to match 'default' here but highlight as keyword (and still
-" highlight rule name as function)?
-syn match regoRuleName "^\s*\(\w\+\)" nextgroup=regoRuleKey,regoRuleValue skipwhite
-syn region regoRuleKey start="\[" end="\]" contained skipwhite
-syn match regoRuleValue "=\w\+" nextgroup=regoIfThen skipwhite
+" rules
+syn match regoRuleName "^\(\w\+\)"
+syn region regoBody start="{" end="}" transparent
 
 " operators
-syn match regoIfThen ":-"
 syn match regoEquality "="
 syn match regoInequality "[<>!]"
+syn match regoArith "[+-/*&|]"
 syn match regoBuiltin "\w\+(" nextgroup=regoBuiltinArgs contains=regoBuiltinArgs
-syn region regoBuiltinArgs start="(" end=")" contained contains=regoNumber,regoNull,regoBoolean,regoString
+syn region regoBuiltinArgs start="(" end=")" contained contains=regoNull,regoBoolean,regoNumber,regoString
 
 " highlighting
 hi link regoKeyword Keyword
@@ -48,12 +45,13 @@ hi link regoNull Function
 hi link regoBoolean Boolean
 hi link regoNumber Number
 hi link regoString String
+
 hi link regoRuleName Function
-hi link regoRuleKey Normal
-hi link regoRuleValue Normal
-hi link regoIfThen Keyword
+
 hi link regoEquality Keyword
 hi link regoInequality Keyword
-hi link regoBuiltin Keyword
+hi link regoArith Keyword
+hi link regoBuiltin Type
+
 hi link regoComment Comment
 hi link regoTodo Todo
