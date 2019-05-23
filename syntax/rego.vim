@@ -11,7 +11,7 @@ endif
 syn case match
 
 " language keywords
-syn keyword regoKeyword package import as not with default else
+syn keyword regoKeyword package import as not with default else some
 
 " comments
 syn match regoComment "#.*$" contains=regoTodo,@Spell
