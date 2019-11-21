@@ -4,7 +4,7 @@ A Vim plugin for the Rego language that includes support for syntax highlighting
 
 ## Installation
 
-The rego-vim plugin can be installed the old fashion way, by copying them into your `~/.vim` directory, or
+The rego-vim plugin can be installed the old fashion way, by copying the files here into your `~/.vim` directory, or
 using any of the plugin managers (Vundle, etc).
 
 ### Vundle Installation
