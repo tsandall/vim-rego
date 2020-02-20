@@ -53,8 +53,8 @@ If you are using [`neoformat`](https://github.com/sbdchd/neoformat) plugin, then
 ```viml
 let g:neoformat_rego_opa = {
       \ 'exe': 'opa',
-      \ 'args': ['fmt', '-w'],
-      \ 'replace': 1,
+      \ 'args': ['fmt'],
+      \ 'stdin': 1,
       \ }
 
 let g:neoformat_enabled_rego = ['opa']
